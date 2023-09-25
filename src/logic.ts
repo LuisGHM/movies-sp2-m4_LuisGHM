@@ -11,8 +11,11 @@ export const createMovie = async (req: Request, res:Response) => {
    return res.status(201).json(data.rows[0]);
 }
 
-/* const query = `SELECT * FROM movies;`;
+export const readAll = async (req: Request, res:Response) => {
+    const query = `SELECT * FROM movies;`;
+    
+    const data = await client.query(query);
+    
+    return res.status(200).json(data.rows); 
+}
 
-const data = await client.query(query);
-
-return res.status(200).json(data.rows); */
