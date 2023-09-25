@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import { connectDatabase, createDatabaseTables } from "./database";
-import { createMovie, readAll, readById } from "./logic";
+import { createMovie, deleteMovie, readAll, readById } from "./logic";
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.get("/movies/:id", readById);
 
 app.patch("/movies/:id");
 
-app.delete("/movies/:id");
+app.delete("/movies/:id", deleteMovie);
 
 const PORT = 3000;
 

@@ -28,3 +28,14 @@ export const readById = async (req: Request, res:Response) => {
     
     return res.status(200).json(data.rows[0]); 
 }
+
+
+export const deleteMovie = async (req: Request, res:Response) => {
+    const id = req.params.id
+
+    const query = `DELETE FROM movies WHERE id = ${id};`;
+    
+    await client.query(query);
+    
+    return res.status(204).json(); 
+}
