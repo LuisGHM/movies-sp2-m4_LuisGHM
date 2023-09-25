@@ -24,5 +24,5 @@ const PORT = 3000;
 app.listen(PORT, async () => {
     await connectDatabase();
     await createDatabaseTables();
-    console.log(`Server started on port ${PORT}`);
-})
+    console.log(`Server started on port ${PORT}`); 
+});
