@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import { connectDatabase, createDatabaseTables } from "./database";
-import { createMovie, readAll } from "./logic";
+import { createMovie, readAll, readById } from "./logic";
 
 const app = express();
 
@@ -11,7 +11,7 @@ app.post("/movies", createMovie);
 
 app.get("/movies", readAll);
 
-app.get("/movies/:id");
+app.get("/movies/:id", readById);
 
 app.patch("/movies/:id");
 

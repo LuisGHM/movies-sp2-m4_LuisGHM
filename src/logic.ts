@@ -19,3 +19,12 @@ export const readAll = async (req: Request, res:Response) => {
     return res.status(200).json(data.rows); 
 }
 
+export const readById = async (req: Request, res:Response) => {
+    const id = req.params.id
+
+    const query = `SELECT * FROM movies WHERE id = ${id};`;
+    
+    const data = await client.query(query);
+    
+    return res.status(200).json(data.rows[0]); 
+}
