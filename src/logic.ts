@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { client } from "./database";
-import format, { string } from "pg-format";
-import { Movies, MoviesResult } from "./interfaces";
+import format from "pg-format";
+import { MoviesResult } from "./interfaces";
 
 export const createMovie = async (req: Request, res:Response): Promise<Response> => {
    let query: string = format(`INSERT INTO movies (%I) VALUES (%L) RETURNING *;`, Object.keys(req.body), Object.values(req.body));
@@ -16,10 +16,7 @@ export const readAll = async (req: Request, res:Response): Promise<Response> => 
     let data: MoviesResult;
 
     if(req.query.category){
-        queryConfig = `SELECT * FROM movies WHERE category = $1;`;
-
-        console.log(queryConfig);
-        
+        queryConfig = `SELECT * FROM movies WHERE category = $1;`;      
 
         data = await client.query(queryConfig, [req.query.category]); 
 
@@ -64,5 +61,5 @@ export const deleteMovie = async (req: Request, res:Response) => {
      
     await client.query(query, [id]);
     
-    return res.status(204).json(); 
+    return res.status(204).json();  
 }

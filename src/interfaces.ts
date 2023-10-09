@@ -8,8 +8,4 @@ export type Movies = {
     price: number
 }
 
-export type MoviesCreate = Omit<Movies, "id">
-
-export type MovieReadAll = Movies[]
-
 export type MoviesResult = QueryResult<Movies>
