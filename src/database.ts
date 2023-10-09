@@ -20,7 +20,8 @@ export const connectDatabase = async () => {
 
 export const createDatabaseTables = async () => {
     try {
-        const query = ` CREATE TABLE IF NOT EXISTS movies (
+        const query = ` 
+            CREATE TABLE IF NOT EXISTS movies (
             id SERIAL PRIMARY KEY,
             name varchar(50),
             category varchar(20),

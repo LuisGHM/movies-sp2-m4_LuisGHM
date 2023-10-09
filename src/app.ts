@@ -22,7 +22,7 @@ app.delete("/movies/:id", existId, deleteMovie);
 const PORT = 3000;
 
 app.listen(PORT, async () => {
+    console.log(`Server started on port ${PORT}`); 
     await connectDatabase();
     await createDatabaseTables();
-    console.log(`Server started on port ${PORT}`); 
 });
